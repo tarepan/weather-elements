@@ -41,6 +41,7 @@
     "webpack-dev-server": "^3.8.0"
   },
   "dependencies": {
+    "lit-element": "^2.2.1",
     "lit-html": "^1.1.2"
   }
 }

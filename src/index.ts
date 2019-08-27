@@ -1,6 +1,3 @@
-import { func1 } from "./func1";
+import "./weather-widget";
 
-console.log("this is index, hello webDev." as string);
-const x1 = 11;
-
-console.log(`${x1}, ${func1(x1)}`);
+console.log("import weather-elements package.");
