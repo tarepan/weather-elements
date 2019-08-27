@@ -7,7 +7,7 @@ With WebComponents technology, you can acquire weather information rapidly (mini
 
 Check [Demo page][pages]!!
 
-[pages]: https://test.com
+[pages]: https://tarepan.github.io/weather-elements/
 
 ## What this package can do
 
