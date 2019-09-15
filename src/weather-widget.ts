@@ -5,6 +5,7 @@ import {
   property,
   TemplateResult
 } from "lit-element";
+import { weatherIcon } from "./weatherIcon";
 
 /**
  * Current weather display widget
@@ -19,6 +20,7 @@ export class WeatherWidget extends LitElement {
   @property({ type: Number }) lat = 35.68; //  default: Tokyo Station
   @property({ type: Number }) lon = 139.76; // default: Tokyo Station
   @property({ type: String }) weather = "-";
+  @property({ type: Number }) weatherID = 0;
   @property({ type: Number }) tempC = -274; // never achived initial value lol
   @property({ type: String }) iconURL = "";
   @property({ type: Number }) intervalMin = 10;
@@ -43,13 +45,22 @@ export class WeatherWidget extends LitElement {
     );
     const resJson = await res.json();
     this.weather = resJson.weather[0].description;
-    this.iconURL = `http://openweathermap.org/img/wn/${resJson.weather[0].icon}@2x.png`;
+    // this.weatherID = resJson.weather[0].id as number;
+    this.weatherID = 802;
     this.tempC = Math.round(resJson.main.temp * 10) / 10; // xx.x ℃
   }
   render(): TemplateResult {
     return html`
-      <img src=${this.iconURL} />
-      <h3>weather: ${this.weather}, ${this.tempC}℃</h3>
+      <style>
+        #weatherIcon {
+          width: 100px;
+          height: 100px;
+        }
+      </style>
+      <svg id="weatherIcon" viewBox="0 0 512 512">
+        ${weatherIcon(this.weatherID)}
+      </svg>
+      <h3>${this.tempC}℃</h3>
     `;
   }
 }
