@@ -45,8 +45,7 @@ export class WeatherWidget extends LitElement {
     );
     const resJson = await res.json();
     this.weather = resJson.weather[0].description;
-    // this.weatherID = resJson.weather[0].id as number;
-    this.weatherID = 802;
+    this.weatherID = resJson.weather[0].id as number;
     this.tempC = Math.round(resJson.main.temp * 10) / 10; // xx.x ℃
   }
   render(): TemplateResult {
