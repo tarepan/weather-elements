@@ -55,6 +55,12 @@ export class WeatherWidget extends LitElement {
         #weatherIcon {
           width: 100px;
           height: 100px;
+          margin: 0;
+          padding: 0;
+        }
+        h3 {
+          margin: 0;
+          padding: 0;
         }
       </style>
       <svg id="weatherIcon" viewBox="0 0 512 512">
