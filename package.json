@@ -1,6 +1,6 @@
 {
   "name": "weather-elements",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Weather Widget with HTML Elements / Web Components",
   "main": "dist/main.js",
   "files": [
