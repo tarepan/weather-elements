@@ -24,6 +24,7 @@ export class WeatherWidget extends LitElement {
   @property({ type: Number }) tempC = -274; // never achived initial value lol
   @property({ type: String }) iconURL = "";
   @property({ type: Number }) intervalMin = 10;
+  @property({ type: String }) url = "#";
   constructor() {
     super();
     // initial query
@@ -49,6 +50,7 @@ export class WeatherWidget extends LitElement {
     this.tempC = Math.round(resJson.main.temp * 10) / 10; // xx.x ℃
   }
   render(): TemplateResult {
+    console.log(this.url == "#");
     return html`
       <style>
         #weatherIcon {
@@ -61,11 +63,20 @@ export class WeatherWidget extends LitElement {
           margin: 0;
           padding: 0;
         }
+        a {
+          text-decoration: none;
+        }
       </style>
-      <svg id="weatherIcon" viewBox="0 0 512 512">
-        ${weatherIcon(this.weatherID)}
-      </svg>
-      <h3>${this.tempC}℃</h3>
+      <a
+        href=${this.url}
+        target=${this.url == "#" ? "_self" : "_blank"}
+        rel="noopener"
+      >
+        <svg id="weatherIcon" viewBox="0 0 512 512">
+          ${weatherIcon(this.weatherID)}
+        </svg>
+        <h3>${this.tempC}℃</h3>
+      </a>
     `;
   }
 }
